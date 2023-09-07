@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.care.root.member.dao.MemberDAO">
+	
+	<resultMap type="com.care.root.member.dto.MemberDTO" id="member">
+		<result property="id" column="id"/>
+		<result property="name" column="name"/><!-- property: 이클립스변수, column: DB컬럼 이름 -->
+	</resultMap>
+
+	<insert id="insertMember"><!-- id는 메소드명 -->
+		insert into test_mybatis values ( #{id}, #{name} )<!-- dto 값(id, name) -->
+	</insert>
+	
+	<select id="getList" resultMap="member">
+		select * from test_mybatis
+	</select>
+
+</mapper>
